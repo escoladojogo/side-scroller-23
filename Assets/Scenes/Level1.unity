@@ -5631,11 +5631,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1694927432076562877, guid: de739e07bb74540a2828f3f35d8fea2f,
-        type: 3}
-      propertyPath: writtenName
-      value: 
-      objectReference: {fileID: 1608654170}
     - target: {fileID: 3697292261554934968, guid: de739e07bb74540a2828f3f35d8fea2f,
         type: 3}
       propertyPath: m_IsActive
@@ -5646,15 +5641,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 345503096}
-    - target: {fileID: 5953341368818296078, guid: de739e07bb74540a2828f3f35d8fea2f,
+    - target: {fileID: 7595306300570297266, guid: de739e07bb74540a2828f3f35d8fea2f,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LeaderboardNameSet
-      objectReference: {fileID: 0}
-    - target: {fileID: 5953341368818296078, guid: de739e07bb74540a2828f3f35d8fea2f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8633487798088755205, guid: de739e07bb74540a2828f3f35d8fea2f,
         type: 3}
@@ -5771,11 +5761,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 23496725}
-    - target: {fileID: 8633804666549717395, guid: de739e07bb74540a2828f3f35d8fea2f,
-        type: 3}
-      propertyPath: m_ContentType
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de739e07bb74540a2828f3f35d8fea2f, type: 3}
 --- !u!1001 &8993886461337127553
@@ -5875,11 +5860,6 @@ PrefabInstance:
       propertyPath: leaderboardUI
       value: 
       objectReference: {fileID: 1164124593}
-    - target: {fileID: 8993886461111740001, guid: 815269ccbaafc4995bff9a3861e0f318,
-        type: 3}
-      propertyPath: name
-      value: 
-      objectReference: {fileID: 1608654170}
     - target: {fileID: 8993886461111740001, guid: 815269ccbaafc4995bff9a3861e0f318,
         type: 3}
       propertyPath: leaderboardName
