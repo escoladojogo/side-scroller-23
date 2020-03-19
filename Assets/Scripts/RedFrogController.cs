@@ -3,15 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedFrogController : FrogController
+public class RedFrogController : MonoBehaviour
 {
     public GameObject fireball;
     public float waitToShoot = 2.0f;
 
-    protected override void Start()
+    void Start()
     {
-        base.Start();
-
         StartCoroutine(WaitAndShootFireball());
     }
 

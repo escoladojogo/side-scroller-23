@@ -12,8 +12,11 @@ GameObject:
   - component: {fileID: 3280519377738528103}
   - component: {fileID: 3280519377738528098}
   - component: {fileID: 3280519377738528101}
-  - component: {fileID: 3280519377738528099}
   - component: {fileID: 3280519377738528096}
+  - component: {fileID: 6437289552280212309}
+  - component: {fileID: 2741413543402258217}
+  - component: {fileID: 3280519377738528099}
+  - component: {fileID: 3280519378012287240}
   m_Layer: 0
   m_Name: FrogBoss
   m_TagString: Enemy
@@ -49,7 +52,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -132,31 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.74, y: 1.15}
   m_EdgeRadius: 0
---- !u!114 &3280519377738528099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3280519377738528102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31701da2c9e424025b753efb0df24741, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waitToJump: 5
-  rigidBody: {fileID: 3280519377738528098}
-  animator: {fileID: 3280519377738528096}
-  lives: 2
-  explosion: {fileID: 7779589646882166640, guid: 002e2fee5246848e89d9083fae8ff181,
-    type: 3}
-  spriteRenderer: {fileID: 3280519377738528103}
-  xJumpForce: 400
-  score: 100
-  fireball: {fileID: 2556796915843166875, guid: f03ea68b2762342e289fcdca87a2e77e,
-    type: 3}
-  waitToShoot: 2
-  diamond: {fileID: 7435696156646936510, guid: c51e536da9ee548cfb927982c395ab87, type: 3}
 --- !u!95 &3280519377738528096
 Animator:
   serializedVersion: 3
@@ -176,3 +153,73 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6437289552280212309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3280519377738528102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f9bed7aacf8b48c891bf32c2bd8cb13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 400
+  waitToJump: 5
+  rigidBody: {fileID: 3280519377738528098}
+  animator: {fileID: 3280519377738528096}
+--- !u!114 &2741413543402258217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3280519377738528102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7193a7d059f4183be8362315fc438b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frogController: {fileID: 6437289552280212309}
+  lives: 10
+  explosion: {fileID: 7779589646882166640, guid: 002e2fee5246848e89d9083fae8ff181,
+    type: 3}
+  spriteRenderer: {fileID: 3280519377738528103}
+  xJumpForce: 100
+  score: 100
+--- !u!114 &3280519377738528099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3280519377738528102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31701da2c9e424025b753efb0df24741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueFrogController: {fileID: 2741413543402258217}
+  fireball: {fileID: 2556796915843166875, guid: f03ea68b2762342e289fcdca87a2e77e,
+    type: 3}
+  waitToShoot: 2
+  diamond: {fileID: 7435696156646936510, guid: c51e536da9ee548cfb927982c395ab87, type: 3}
+--- !u!114 &3280519378012287240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3280519377738528102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7193a7d059f4183be8362315fc438b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frogController: {fileID: 0}
+  lives: 3
+  explosion: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  xJumpForce: 100
+  score: 100

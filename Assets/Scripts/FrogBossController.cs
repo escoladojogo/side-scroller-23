@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FrogBossController : BlueFrogController
+public class FrogBossController : MonoBehaviour
 {
+    public BlueFrogController blueFrogController;
     public GameObject fireball;
     public float waitToShoot = 2.0f;
     public GameObject diamond;
 
-    protected override void Start()
+    void Start()
     {
-        base.Start();
         StartCoroutine(WaitAndShootFireballs());
     }
 
@@ -29,11 +29,9 @@ public class FrogBossController : BlueFrogController
         }
     }
 
-    protected override void Die()
+    void OnDestroy()
     {
-        base.Die();
-
-        if (lives <= 0)
+        if (blueFrogController.lives <= 0)
         {
             for (int i = 0; i < 10; i++)
             {
@@ -41,7 +39,7 @@ public class FrogBossController : BlueFrogController
                 clone.SendMessage("JumpRandomly");
             }
 
-            player.SendMessage("EndLevel");
+            blueFrogController.GetPlayer().SendMessage("EndLevel");
         }
     }
 }

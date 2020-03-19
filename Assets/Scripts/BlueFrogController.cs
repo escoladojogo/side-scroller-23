@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlueFrogController : FrogController
+public class BlueFrogController : MonoBehaviour
 {
+    public FrogController frogController;
     public int lives = 3;
     public GameObject explosion;
     public SpriteRenderer spriteRenderer;
@@ -11,21 +12,17 @@ public class BlueFrogController : FrogController
     public int score;
 
     EnemyTools enemyTools = new EnemyTools(10f);
-    protected GameObject player;
+    GameObject player;
 
-    protected override void Start()
+    void Start()
     {
         player = GameObject.FindWithTag("Player");
-        StartCoroutine(WaitAndJumpOnPlayer());
     }
 
-    IEnumerator WaitAndJumpOnPlayer()
+    void Update()
     {
-        while (true)
+        if (frogController.HasJumped())
         {
-            yield return new WaitForSeconds(waitToJump);
-            animator.SetBool("IsJumping", true);
-
             float xForce = 0;
 
             if (enemyTools.IsPlayerClose(transform.position.x))
@@ -42,11 +39,11 @@ public class BlueFrogController : FrogController
                 }
             }
 
-            rigidBody.AddForce(new Vector2(xForce, 400f));
+            frogController.rigidBody.AddForce(new Vector2(xForce, 0));
         }
     }
 
-    protected virtual void Die()
+    public void Die()
     {
         lives--;
         StartCoroutine(ShowDamage());
@@ -67,5 +64,10 @@ public class BlueFrogController : FrogController
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.2f);
         spriteRenderer.color = old;
+    }
+
+    public GameObject GetPlayer()
+    {
+        return player;
     }
 }

@@ -49,7 +49,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -165,4 +164,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 10
   spriteRenderer: {fileID: 7435696156646936508}
-  rigidbody: {fileID: 7435696156646936497}
+  rigidBody: {fileID: 7435696156646936497}

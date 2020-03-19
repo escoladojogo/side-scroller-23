@@ -9,23 +9,27 @@ public class FrogController : MonoBehaviour
     public Rigidbody2D rigidBody;
     public Animator animator;
 
-    protected virtual void Start()
-    {
-        StartCoroutine(WaitAndJump());
-    }
+    float secondsPassed = 0;
 
-    IEnumerator WaitAndJump()
+    void Update()
     {
-        while (true)
+        secondsPassed += Time.deltaTime;
+
+        if (secondsPassed >= waitToJump)
         {
-            yield return new WaitForSeconds(waitToJump);
             animator.SetBool("IsJumping", true);
             rigidBody.AddForce(new Vector2(0, jumpForce));
+            secondsPassed = 0;
         }
     }
 
-    protected void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         animator.SetBool("IsJumping", false);
+    }
+
+    public bool HasJumped()
+    {
+        return animator.GetBool("IsJumping") && secondsPassed == 0;
     }
 }

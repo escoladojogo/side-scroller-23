@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3182415066842726041}
   - component: {fileID: 3182415066842726040}
   - component: {fileID: 3182415066842726039}
+  - component: {fileID: 1446136033050053494}
   - component: {fileID: 3182415066842726038}
   m_Layer: 0
   m_Name: BlueFrog
@@ -50,7 +51,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -152,6 +152,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1446136033050053494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3182415066842726044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f9bed7aacf8b48c891bf32c2bd8cb13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 400
+  waitToJump: 5
+  rigidBody: {fileID: 3182415066842726041}
+  animator: {fileID: 3182415066842726039}
 --- !u!114 &3182415066842726038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,9 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7193a7d059f4183be8362315fc438b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitToJump: 5
-  rigidBody: {fileID: 3182415066842726041}
-  animator: {fileID: 3182415066842726039}
+  frogController: {fileID: 1446136033050053494}
   lives: 3
   explosion: {fileID: 7779589646882166640, guid: 002e2fee5246848e89d9083fae8ff181,
     type: 3}
