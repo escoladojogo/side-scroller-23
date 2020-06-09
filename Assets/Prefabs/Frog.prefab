@@ -98,7 +98,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -150,7 +149,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 734166ab9f5f443039913674700bb3fe, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -212,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9bed7aacf8b48c891bf32c2bd8cb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 400
   waitToJump: 5
   rigidBody: {fileID: 7791194306694286724}
   animator: {fileID: 750277775}
