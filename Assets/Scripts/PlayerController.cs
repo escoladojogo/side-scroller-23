@@ -6,8 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
     public Rigidbody2D rigidbody2D;
+    public Animator animator;
     public float runBoost = 5;
-    public float jumpBoost = 400;
+    public float jumpBoost = 600;
 
     float horizontalMove;
     bool jump;
@@ -37,7 +38,15 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
+            animator.SetBool("IsJumping", true);
         }
+
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        animator.SetBool("IsJumping", false);
     }
 
     private void FixedUpdate()
