@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
   - Stairs
   - Spikes
   - Cherry
@@ -12,6 +11,7 @@ TagManager:
   - GroundTrigger
   - EndLevelTrigger
   - Fireball
+  - Enemy
   layers:
   - Default
   - TransparentFX

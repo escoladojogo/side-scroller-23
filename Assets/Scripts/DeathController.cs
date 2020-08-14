@@ -4,25 +4,12 @@ using UnityEngine;
 
 public class DeathController : MonoBehaviour
 {
-    public GameObject explosion;
-    public int score;
-
-    GameObject player;
-
-    private void Start()
-    {
-        player = GameObject.FindWithTag("Player");
-    }
+    public GameObject death;
 
     void Die()
     {
-        player.SendMessage("AddScore", score);
-        Instantiate(explosion, this.transform.position, Quaternion.identity);
-        Destroy(this.gameObject);
-    }
-
-    void SelfDestroy()
-    {
+        GameObject explosion = Instantiate(death, this.transform.position, Quaternion.identity);
+        Destroy(explosion, 0.5f);
         Destroy(this.gameObject);
     }
 }

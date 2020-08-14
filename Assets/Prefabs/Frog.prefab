@@ -61,10 +61,9 @@ GameObject:
   - component: {fileID: 7791194306694286747}
   - component: {fileID: 750277775}
   - component: {fileID: 750277779}
-  - component: {fileID: 2788550077295254129}
   m_Layer: 0
   m_Name: Frog
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,18 +214,3 @@ MonoBehaviour:
   waitToJump: 5
   rigidBody: {fileID: 7791194306694286724}
   animator: {fileID: 750277775}
---- !u!114 &2788550077295254129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7791194306694286746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46cd40421301e4f8796735bc70dc6998, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosion: {fileID: 7779589646882166640, guid: 002e2fee5246848e89d9083fae8ff181,
-    type: 3}
-  score: 5
