@@ -46,11 +46,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        animator.SetBool("IsJumping", false);
-
         if (collision.gameObject.tag == "Enemy")
         {
+            jump = true;
             collision.gameObject.SendMessage("Die");
+        }
+        else
+        {
+            animator.SetBool("IsJumping", false);
         }
     }
 
