@@ -4841,6 +4841,7 @@ MonoBehaviour:
   animator: {fileID: 1484394060}
   runBoost: 5
   jumpBoost: 600
+  capsuleCollider: {fileID: 1484394057}
 --- !u!95 &1484394060
 Animator:
   serializedVersion: 3

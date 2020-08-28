@@ -12,11 +12,12 @@ public class PlayerController : MonoBehaviour
 
     float horizontalMove;
     bool jump;
+    Vector3 startPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        startPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -66,5 +67,24 @@ public class PlayerController : MonoBehaviour
             rigidbody2D.AddForce(new Vector2(0, jumpBoost));
             jump = false;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            StartCoroutine(MakePlayerDie());
+        }
+    }
+
+    IEnumerator MakePlayerDie()
+    {
+        jump = true;
+        animator.SetBool("IsDying", true);
+
+        yield return new WaitForSeconds(1.0f);
+
+        animator.SetBool("IsDying", false);
+        transform.position = startPosition;
     }
 }
