@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public float runBoost = 5;
     public float jumpBoost = 600;
+    public CapsuleCollider2D capsuleCollider;
+    public GameObject groundTrigger;
 
     float horizontalMove;
     bool jump;
@@ -81,10 +83,14 @@ public class PlayerController : MonoBehaviour
     {
         jump = true;
         animator.SetBool("IsDying", true);
+        capsuleCollider.enabled = false;
+        groundTrigger.SetActive(false);
 
         yield return new WaitForSeconds(1.0f);
 
         animator.SetBool("IsDying", false);
         transform.position = startPosition;
+        capsuleCollider.enabled = true;
+        groundTrigger.SetActive(true);
     }
 }

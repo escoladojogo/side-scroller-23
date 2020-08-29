@@ -4842,6 +4842,7 @@ MonoBehaviour:
   runBoost: 5
   jumpBoost: 600
   capsuleCollider: {fileID: 1484394057}
+  groundTrigger: {fileID: 733997157}
 --- !u!95 &1484394060
 Animator:
   serializedVersion: 3
