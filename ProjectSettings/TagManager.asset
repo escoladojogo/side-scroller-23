@@ -4,13 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Stairs
-  - Spikes
-  - Cherry
-  - Lever
-  - GroundTrigger
-  - EndLevelTrigger
-  - Fireball
   - Enemy
   layers:
   - Default
