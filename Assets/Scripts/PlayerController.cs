@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     float horizontalMove;
     bool jump;
     Vector3 startPosition;
+    bool canClimb;
+    bool climb;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +47,18 @@ public class PlayerController : MonoBehaviour
         }
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+
+        float verticalMove = Input.GetAxisRaw("Vertical");
+
+        if (verticalMove > 0 && canClimb == true)
+        {
+            //fazer a raposa subir
+            climb = true;
+        }
+        else
+        {
+            climb = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -54,15 +68,34 @@ public class PlayerController : MonoBehaviour
             jump = true;
             collision.gameObject.SendMessage("Die");
         }
+        else if (collision.gameObject.tag == "Stairs")
+        {
+            canClimb = true;
+        }
         else
         {
             animator.SetBool("IsJumping", false);
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Stairs")
+        {
+            canClimb = false;
+        }
+    }
+
     private void FixedUpdate()
     {
-        rigidbody2D.velocity = new Vector2(horizontalMove * runBoost, rigidbody2D.velocity.y);
+        if (climb == true)
+        {
+            rigidbody2D.velocity = new Vector2(horizontalMove * runBoost, 5);
+        }
+        else
+        {
+            rigidbody2D.velocity = new Vector2(horizontalMove * runBoost, rigidbody2D.velocity.y);
+        }
 
         if (jump == true)
         {
