@@ -54,10 +54,12 @@ public class PlayerController : MonoBehaviour
         {
             //fazer a raposa subir
             climb = true;
+            animator.SetBool("IsClimbing", true);
         }
         else
         {
             climb = false;
+            animator.SetBool("IsClimbing", false);
         }
     }
 
