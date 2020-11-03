@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
-    public Rigidbody2D rigidbody2D;
+    public Rigidbody2D playerRigidBody;
     public Animator animator;
     public float runBoost = 5;
     public float jumpBoost = 600;
@@ -92,16 +92,16 @@ public class PlayerController : MonoBehaviour
     {
         if (climb == true)
         {
-            rigidbody2D.velocity = new Vector2(horizontalMove * runBoost, 5);
+            playerRigidBody.velocity = new Vector2(horizontalMove * runBoost, 5);
         }
         else
         {
-            rigidbody2D.velocity = new Vector2(horizontalMove * runBoost, rigidbody2D.velocity.y);
+            playerRigidBody.velocity = new Vector2(horizontalMove * runBoost, playerRigidBody.velocity.y);
         }
 
         if (jump == true)
         {
-            rigidbody2D.AddForce(new Vector2(0, jumpBoost));
+            playerRigidBody.AddForce(new Vector2(0, jumpBoost));
             jump = false;
         }
     }

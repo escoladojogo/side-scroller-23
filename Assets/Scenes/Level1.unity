@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 62763753}
   - component: {fileID: 62763755}
   - component: {fileID: 62763756}
+  - component: {fileID: 62763757}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: Untagged
@@ -277,12 +278,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.23
+  m_Radius: 0.26
+--- !u!114 &62763757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62763752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8d098589c1d74b2099205db7ff679f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballRigidBody: {fileID: 0}
 --- !u!1 &131452955
 GameObject:
   m_ObjectHideFlags: 0
@@ -4801,7 +4815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1484394055}
-  rigidbody2D: {fileID: 1484394058}
+  playerRigidBody: {fileID: 1484394058}
   animator: {fileID: 1484394060}
   runBoost: 5
   jumpBoost: 600
