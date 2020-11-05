@@ -128,4 +128,9 @@ public class PlayerController : MonoBehaviour
         capsuleCollider.enabled = true;
         groundTrigger.SetActive(true);
     }
+
+    void LoseALife()
+    {
+        StartCoroutine(MakePlayerDie());
+    }
 }
