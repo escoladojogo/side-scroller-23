@@ -9,16 +9,14 @@ public class BlueFrogController : MonoBehaviour
 
     void Jumped()
     {
-        GameObject player = GameObject.FindWithTag("Player");
+        EnemyTools enemyTools = new EnemyTools();
 
-        float diffX = Mathf.Abs(player.transform.position.x - transform.position.x);
-
-        if (diffX <= 10)
+        if (enemyTools.IsPlayerClose(frogBody.transform.position.x))
         {
             // virar o sapo azul na direção do jogador
             // empurrar o pulo do sapo azul na direção do jogador
 
-            if (player.transform.position.x < transform.position.x)
+            if (enemyTools.IsPlayerLeft(frogBody.transform.position.x))
             {
                 //jogador está na esquerda
                 spriteRenderer.flipX = false;
