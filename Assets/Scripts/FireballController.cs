@@ -15,7 +15,7 @@ public class FireballController : MonoBehaviour
         if (lifeTime <= 0)
         {
             //destruir a bola de fogo
-            gameObject.SendMessage("Die");
+            gameObject.SendMessage("Die", gameObject);
         }
     }
 
@@ -24,7 +24,12 @@ public class FireballController : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.SendMessage("LoseALife");
-            gameObject.SendMessage("Die");
+            gameObject.SendMessage("Die", gameObject);
         }
+    }
+
+    void AddScore(int score)
+    {
+
     }
 }

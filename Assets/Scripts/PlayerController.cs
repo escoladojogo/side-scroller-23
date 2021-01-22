@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,12 +12,14 @@ public class PlayerController : MonoBehaviour
     public float jumpBoost = 600;
     public CapsuleCollider2D capsuleCollider;
     public GameObject groundTrigger;
+    public Text scoreText;
 
     float horizontalMove;
     bool jump;
     Vector3 startPosition;
     bool canClimb;
     bool climb;
+    int score;
 
     // Start is called before the first frame update
     void Start()
@@ -68,7 +71,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             jump = true;
-            collision.gameObject.SendMessage("Die");
+            collision.gameObject.SendMessage("Die", gameObject);
         }
         else if (collision.gameObject.tag == "Stairs")
         {
@@ -132,5 +135,11 @@ public class PlayerController : MonoBehaviour
     void LoseALife()
     {
         StartCoroutine(MakePlayerDie());
+    }
+
+    void AddScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
+        scoreText.text = score.ToString();
     }
 }
