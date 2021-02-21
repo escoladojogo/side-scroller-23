@@ -16,9 +16,28 @@ public class LeaderboardController : MonoBehaviour
     int scorePos2 = 20;
     int scorePos3 = 10;
 
-    // Start is called before the first frame update
-    void Start()
+    public void AddScore(string name, int score)
     {
-
+        if (score > scorePos1)
+        {
+            name3.text = name2.text;
+            score3.text = score2.text;
+            name2.text = name1.text;
+            score2.text = score1.text;
+            name1.text = name;
+            score1.text = score.ToString();
+        }
+        else if (score > scorePos2)
+        {
+            name3.text = name2.text;
+            score3.text = score2.text;
+            name2.text = name;
+            score2.text = score.ToString();
+        }
+        else if (score > scorePos3)
+        {
+            name3.text = name;
+            score3.text = score.ToString();
+        }
     }
 }

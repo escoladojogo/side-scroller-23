@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public CapsuleCollider2D capsuleCollider;
     public GameObject groundTrigger;
     public Text scoreText;
+    public LeaderboardController leaderboardUI;
 
     float horizontalMove;
     bool jump;
@@ -76,6 +77,11 @@ public class PlayerController : MonoBehaviour
         else if (collision.gameObject.tag == "Stairs")
         {
             canClimb = true;
+        }
+        else if (collision.gameObject.tag == "EndLevelTrigger" && !leaderboardUI.gameObject.activeSelf)
+        {
+            leaderboardUI.AddScore("Play", score);
+            leaderboardUI.gameObject.SetActive(true);
         }
         else
         {
