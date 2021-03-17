@@ -16,6 +16,15 @@ public class LeaderboardController : MonoBehaviour
     int scorePos2 = 20;
     int scorePos3 = 10;
 
+    public bool IsHighscore(int score)
+    {
+        if (score > scorePos3)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void AddScore(string name, int score)
     {
         if (score > scorePos1)

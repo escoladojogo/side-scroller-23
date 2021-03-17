@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public GameObject groundTrigger;
     public Text scoreText;
     public LeaderboardController leaderboardUI;
+    public Text leaderboardName;
+    public GameObject inputNameUI;
 
     float horizontalMove;
     bool jump;
@@ -78,10 +80,22 @@ public class PlayerController : MonoBehaviour
         {
             canClimb = true;
         }
-        else if (collision.gameObject.tag == "EndLevelTrigger" && !leaderboardUI.gameObject.activeSelf)
+        else if (collision.gameObject.tag == "EndLevelTrigger")
         {
-            leaderboardUI.AddScore("Play", score);
-            leaderboardUI.gameObject.SetActive(true);
+            if (leaderboardUI.IsHighscore(score))
+            {
+                if (!inputNameUI.activeSelf)
+                {
+                    inputNameUI.SetActive(true);
+                }
+            }
+            else
+            {
+                if (!leaderboardUI.gameObject.activeSelf)
+                {
+                    leaderboardUI.gameObject.SetActive(true);
+                }
+            }
         }
         else
         {
@@ -147,5 +161,12 @@ public class PlayerController : MonoBehaviour
     {
         score += scoreToAdd;
         scoreText.text = score.ToString();
+    }
+
+    public void SetLeaderboardName()
+    {
+        leaderboardUI.AddScore(leaderboardName.text, score);
+        inputNameUI.SetActive(false);
+        leaderboardUI.gameObject.SetActive(true);
     }
 }
