@@ -12,13 +12,34 @@ public class LeaderboardController : MonoBehaviour
     public Text name3;
     public Text score3;
 
-    int scorePos1 = 30;
-    int scorePos2 = 20;
-    int scorePos3 = 10;
+    int[] scores;
+    string[] names = new string[3];
+
+    void InitializeScores()
+    {
+        scores = new int[3];
+
+        int score = 30;
+
+        for (int i = 0; i < 3; i++)
+        {
+            scores[i] = score;
+            score = score - 10;
+        }
+
+        names[0] = name1.text;
+        names[1] = name2.text;
+        names[2] = name3.text;
+    }
 
     public bool IsHighscore(int score)
     {
-        if (score > scorePos3)
+        if (scores == null)
+        {
+            InitializeScores();
+        }
+
+        if (score > scores[scores.Length - 1])
         {
             return true;
         }
@@ -27,26 +48,28 @@ public class LeaderboardController : MonoBehaviour
 
     public void AddScore(string name, int score)
     {
-        if (score > scorePos1)
+        for (int i = scores.Length - 1; i >= 0; i--)
         {
-            name3.text = name2.text;
-            score3.text = score2.text;
-            name2.text = name1.text;
-            score2.text = score1.text;
-            name1.text = name;
-            score1.text = score.ToString();
+            if (i > 0 && scores[i - 1] < score)
+            {
+                scores[i] = scores[i - 1];
+                names[i] = names[i - 1];
+            }
+            else
+            {
+                scores[i] = score;
+                names[i] = name;
+                break;
+            }
         }
-        else if (score > scorePos2)
-        {
-            name3.text = name2.text;
-            score3.text = score2.text;
-            name2.text = name;
-            score2.text = score.ToString();
-        }
-        else if (score > scorePos3)
-        {
-            name3.text = name;
-            score3.text = score.ToString();
-        }
+
+        score1.text = scores[0].ToString();
+        name1.text = names[0];
+
+        score2.text = scores[1].ToString();
+        name2.text = names[1];
+
+        score3.text = scores[2].ToString();
+        name3.text = names[2];
     }
 }
