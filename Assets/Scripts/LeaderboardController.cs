@@ -19,17 +19,35 @@ public class LeaderboardController : MonoBehaviour
     {
         scores = new int[3];
 
-        int score = 30;
-
-        for (int i = 0; i < 3; i++)
+        if (PlayerPrefs.HasKey("score0"))
         {
-            scores[i] = score;
-            score = score - 10;
-        }
+            for (int i = 0; i < 3; i++)
+            {
+                scores[i] = PlayerPrefs.GetInt("score" + i);
+                names[i] = PlayerPrefs.GetString("name" + i);
+            }
 
-        names[0] = name1.text;
-        names[1] = name2.text;
-        names[2] = name3.text;
+            score1.text = scores[0].ToString();
+            score2.text = scores[1].ToString();
+            score3.text = scores[2].ToString();
+            name1.text = names[0];
+            name2.text = names[1];
+            name3.text = names[2];
+        }
+        else
+        {
+            int score = 30;
+
+            for (int i = 0; i < 3; i++)
+            {
+                scores[i] = score;
+                score = score - 10;
+            }
+
+            names[0] = name1.text;
+            names[1] = name2.text;
+            names[2] = name3.text;
+        }
     }
 
     public bool IsHighscore(int score)
@@ -71,5 +89,18 @@ public class LeaderboardController : MonoBehaviour
 
         score3.text = scores[2].ToString();
         name3.text = names[2];
+
+        SaveLeaderboard();
+    }
+
+    void SaveLeaderboard()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            PlayerPrefs.SetInt("score" + i, scores[i]);
+            PlayerPrefs.SetString("name" + i, names[i]);
+        }
+
+        PlayerPrefs.Save();
     }
 }
