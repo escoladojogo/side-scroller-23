@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -94,6 +95,7 @@ public class PlayerController : MonoBehaviour
                 if (!leaderboardUI.gameObject.activeSelf)
                 {
                     leaderboardUI.gameObject.SetActive(true);
+                    StartCoroutine(WaitAndGoToNextStage());
                 }
             }
         }
@@ -168,5 +170,22 @@ public class PlayerController : MonoBehaviour
         leaderboardUI.AddScore(leaderboardName.text, score);
         inputNameUI.SetActive(false);
         leaderboardUI.gameObject.SetActive(true);
+        StartCoroutine(WaitAndGoToNextStage());
+    }
+
+    IEnumerator WaitAndGoToNextStage()
+    {
+        yield return new WaitForSeconds(3.0f);
+
+        Scene scene = SceneManager.GetActiveScene();
+
+        if (scene.name == "Level1")
+        {
+            SceneManager.LoadScene("Level2");
+        }
+        else
+        {
+            Debug.Log("Fim de Jogo");
+        }
     }
 }

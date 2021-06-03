@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LeaderboardController : MonoBehaviour
 {
@@ -18,13 +19,14 @@ public class LeaderboardController : MonoBehaviour
     void InitializeScores()
     {
         scores = new int[3];
+        string level = SceneManager.GetActiveScene().name;
 
-        if (PlayerPrefs.HasKey("score0"))
+        if (PlayerPrefs.HasKey(level + "score0"))
         {
             for (int i = 0; i < 3; i++)
             {
-                scores[i] = PlayerPrefs.GetInt("score" + i);
-                names[i] = PlayerPrefs.GetString("name" + i);
+                scores[i] = PlayerPrefs.GetInt(level + "score" + i);
+                names[i] = PlayerPrefs.GetString(level + "name" + i);
             }
 
             score1.text = scores[0].ToString();
@@ -95,10 +97,12 @@ public class LeaderboardController : MonoBehaviour
 
     void SaveLeaderboard()
     {
+        string level = SceneManager.GetActiveScene().name;
+
         for (int i = 0; i < 3; i++)
         {
-            PlayerPrefs.SetInt("score" + i, scores[i]);
-            PlayerPrefs.SetString("name" + i, names[i]);
+            PlayerPrefs.SetInt(level + "score" + i, scores[i]);
+            PlayerPrefs.SetString(level + "name" + i, names[i]);
         }
 
         PlayerPrefs.Save();
